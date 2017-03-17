@@ -1,0 +1,27 @@
+{
+	"name": "commandir",
+	"version": "0.1.0",
+	"description": "Effortless mkdir and rmdir",
+	"author": "Felipe Vargas <felipe@fvgs.ai> (fvgs.ai)",
+	"repository": "fvgs/commandir",
+	"homepage": "https://github.com/fvgs/commandir",
+	"bugs": "https://github.com/fvgs/commandir/issues",
+	"main": "src/commandir.js",
+	"license": "MIT",
+	"engines": {"node": "^7.7.3"},
+	"files": ["src/"],
+	"keywords": [
+		"commandir",
+		"commander",
+		"command",
+		"mkdir",
+		"rmdir",
+		"dir",
+		"dirs",
+		"directory",
+		"directories",
+		"fs",
+		"filesystem",
+		"utility"
+	]
+}
