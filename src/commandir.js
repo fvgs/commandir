@@ -24,14 +24,12 @@ async function mkdir (dirs, ...args) {
 		let err
 		let dirPromises = dirs.map (mkdirHelper)
 		dirPromises = dirPromises.map (async (dirPromise) => {
-			let createdDirs
 			try {
-				createdDirs = await dirPromise
+				return await dirPromise
 			} catch ({err: error, dirs: createdDirs}) {
 				if (!err) err = error
 				return createdDirs
 			}
-			return createdDirs
 		})
 
 		let createdDirs = await Promise.all (dirPromises)
@@ -58,18 +56,18 @@ async function mkdirHelper (dir) {
 
 				if (err.code === 'ENOENT') {
 					let createdDirs
-					let createdDir
 					try {
 						createdDirs = await mkdirHelper (dirname (dir))
 					} catch (obj) {
 						reject (obj)
 						return
 					}
+					let createdDir
 					try {
 						createdDir = await mkdirHelper (dir)
 					} catch ({err, dirs}) {
 						createdDirs.push (...dirs)
-						reject ({err, createdDirs})
+						reject ({err, dirs: createdDirs})
 						return
 					}
 					createdDirs.push (...createdDir)
@@ -104,11 +102,7 @@ async function rmdir (dirs, ...args) {
 		return removedDir ? [removedDir] : []
 	}
 	if (isArray (dirs) && dirs.every (isString)) {
-		const sortedDirs = dirs.sort ((a, b) => {
-			if (a < b) return 1
-			if (a > b) return -1
-			return 0
-		})
+		const sortedDirs = dirs.sort ((a, b) => b.localeCompare (a))
 		const removedDirs = []
 		let err
 
