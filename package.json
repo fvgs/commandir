@@ -9,7 +9,7 @@
 	"main": "src/commandir.js",
 	"license": "MIT",
 	"engines": {"node": "^7.7.3"},
-	"files": ["src/"],
+	"files": ["src/**"],
 	"keywords": [
 		"commandir",
 		"commander",
