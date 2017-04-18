@@ -1,6 +1,6 @@
 {
 	"name": "commandir",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Effortless mkdir and rmdir",
 	"author": "Felipe Vargas <felipe@fvgs.ai> (fvgs.ai)",
 	"repository": "fvgs/commandir",
