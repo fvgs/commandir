@@ -4,7 +4,7 @@
 	"description": "Effortless mkdir and rmdir",
 	"author": "Felipe Vargas <felipe@fvgs.ai> (fvgs.ai)",
 	"repository": "fvgs/commandir",
-	"homepage": "https://github.com/fvgs/commandir",
+	"homepage": "https://github.com/fvgs/commandir#readme",
 	"bugs": "https://github.com/fvgs/commandir/issues",
 	"main": "src/commandir.js",
 	"license": "MIT",
