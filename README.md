@@ -4,6 +4,16 @@
 
 Because the functions are idempotent, you won't get an error for trying to create a directory that already exists or trying to remove one that doesn't. Additionally, `mkdir` creates intermediate directories so you don't have to! Finally, `mkdir` and `rmdir` will always tell you exactly which directories were created or deleted so your program can clean up after itself if it aborts later in its execution. This is made especially easy by the fact both functions share a consistent API allowing you to pass the output of one as the input to the other!
 
+### Install
+##### yarn
+```
+yarn add commandir
+```
+##### npm
+```
+npm install --save commandir
+```
+
 ## `mkdir (dirs)`
 ###### Takes a single argument
 The argument is either a single path given as a string or an array of such strings.
