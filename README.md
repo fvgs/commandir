@@ -1,5 +1,9 @@
 # commandir :open_file_folder:
 
+[![npm](https://img.shields.io/npm/v/commandir.svg)](https://www.npmjs.com/package/commandir)
+[![downloads](https://img.shields.io/npm/dm/commandir.svg)](https://www.npmjs.com/package/commandir)
+[![maintained](https://img.shields.io/badge/maintained-✔-green.svg)](https://www.npmjs.com/package/commandir)
+
 `mkdir` and `rmdir` that just work
 
 - The functions are idempotent, so you won't get an error for trying to create a directory that already exists or trying to remove one that doesn't.
