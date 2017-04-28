@@ -2,7 +2,9 @@
 
 `mkdir` and `rmdir` that just work
 
-Because the functions are idempotent, you won't get an error for trying to create a directory that already exists or trying to remove one that doesn't. Additionally, `mkdir` creates intermediate directories so you don't have to! Finally, `mkdir` and `rmdir` will always tell you exactly which directories were created or deleted so your program can clean up after itself if it aborts later in its execution. This is made especially easy by the fact both functions share a consistent API allowing you to pass the output of one as the input to the other!
+- The functions are idempotent, so you won't get an error for trying to create a directory that already exists or trying to remove one that doesn't.
+- `mkdir` creates intermediate directories so you don't have to!
+- `mkdir` and `rmdir` will always tell you exactly which directories were created or deleted so your program can [clean up after itself](https://github.com/fvgs/commandir#cleanup-example) if it aborts later in its execution. This is made especially easy by the fact both functions share a consistent API allowing you to pass the output of one as the input to the other!
 
 ### Install
 ##### yarn
