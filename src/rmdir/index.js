@@ -1,13 +1,12 @@
 const {rmdir: fsRmdir} = require ('fs')
 const {isString, isArray} = require ('../utils')
+const {invalidNumberOfArguments, invalidArgumentType} = require ('../strings')
 
 module.exports = rmdir
 
 async function rmdir (dirs, ...args) {
 	if (args.length > 0) {
-		const err = new Error (
-			'Invalid number of arguments. The function expects a single string or array of strings'
-		)
+		const err = new Error (invalidNumberOfArguments)
 		throw {err, dirs: []}
 	}
 
@@ -40,9 +39,7 @@ async function rmdir (dirs, ...args) {
 		return removedDirs
 	}
 
-	const err = new Error (
-		'Received argument of invalid type. The function expects a single string or array of strings'
-	)
+	const err = new Error (invalidArgumentType)
 	throw {err, dirs: []}
 }
 
