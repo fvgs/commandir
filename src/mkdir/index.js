@@ -1,15 +1,8 @@
-const {mkdir: fsMkdir, rmdir: fsRmdir} = require ('fs')
+const {mkdir: fsMkdir} = require ('fs')
 const {dirname} = require ('path')
+const {isString, isArray} = require ('../utils')
 
-module.exports = {mkdir, rmdir}
-
-function isString (val) {
-	return Object.prototype.toString.call (val) === '[object String]'
-}
-
-function isArray (val) {
-	return Object.prototype.toString.call (val) === '[object Array]'
-}
+module.exports = mkdir
 
 async function mkdir (dirs, ...args) {
 	if (args.length > 0) {
@@ -80,67 +73,6 @@ async function mkdirHelper (dir) {
 			}
 
 			resolve ([dir])
-		})
-	})
-}
-
-async function rmdir (dirs, ...args) {
-	if (args.length > 0) {
-		const err = new Error (
-			'Invalid number of arguments. The function expects a single string or array of strings'
-		)
-		throw {err, dirs: []}
-	}
-
-	if (isString (dirs)) {
-		let removedDir
-		try {
-			removedDir = await rmdirHelper (dirs)
-		} catch (err) {
-			throw {err, dirs: []}
-		}
-		return removedDir ? [removedDir] : []
-	}
-	if (isArray (dirs) && dirs.every (isString)) {
-		const sortedDirs = dirs.sort ((a, b) => b.localeCompare (a))
-		const removedDirs = []
-		let err
-
-		for (let dir of sortedDirs) {
-			let removedDir
-			try {
-				removedDir = await rmdirHelper (dir)
-			} catch (error) {
-				if (!err) err = error
-				continue
-			}
-			if (removedDir) removedDirs.push (removedDir)
-		}
-
-		if (err) throw {err, dirs: removedDirs}
-		return removedDirs
-	}
-
-	const err = new Error (
-		'Received argument of invalid type. The function expects a single string or array of strings'
-	)
-	throw {err, dirs: []}
-}
-
-async function rmdirHelper (dir) {
-	return new Promise ((resolve, reject) => {
-		fsRmdir (dir, (err) => {
-			if (err) {
-				if (err.code === 'ENOENT') {
-					resolve ()
-					return
-				}
-
-				reject (err)
-				return
-			}
-
-			resolve (dir)
 		})
 	})
 }

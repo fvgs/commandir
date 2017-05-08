@@ -6,7 +6,7 @@
 	"repository": "fvgs/commandir",
 	"homepage": "https://github.com/fvgs/commandir#readme",
 	"bugs": "https://github.com/fvgs/commandir/issues",
-	"main": "src/commandir.js",
+	"main": "src",
 	"license": "MIT",
 	"engines": {"node": "^7.7.3"},
 	"files": ["src/**"],
