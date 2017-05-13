@@ -4,11 +4,13 @@ const {invalidNumberOfArguments, invalidArgumentType} = require ('../strings')
 
 module.exports = rmdir
 
-async function rmdir (dirs, ...args) {
-	if (args.length > 0) {
+async function rmdir (...args) {
+	if (args.length !== 1) {
 		const err = new Error (invalidNumberOfArguments)
 		throw {err, dirs: []}
 	}
+
+	const [dirs] = args
 
 	if (isString (dirs)) {
 		let removedDir

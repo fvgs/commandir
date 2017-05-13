@@ -5,11 +5,13 @@ const {invalidNumberOfArguments, invalidArgumentType} = require ('../strings')
 
 module.exports = mkdir
 
-async function mkdir (dirs, ...args) {
-	if (args.length > 0) {
+async function mkdir (...args) {
+	if (args.length !== 1) {
 		const err = new Error (invalidNumberOfArguments)
 		throw {err, dirs: []}
 	}
+
+	const [dirs] = args
 
 	if (isString (dirs)) return await mkdirHelper (dirs)
 	if (isArray (dirs) && dirs.every (isString)) {
