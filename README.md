@@ -2,13 +2,14 @@
 
 [![npm](https://img.shields.io/npm/v/commandir.svg)](https://www.npmjs.com/package/commandir)
 [![downloads](https://img.shields.io/npm/dm/commandir.svg)](https://www.npmjs.com/package/commandir)
-[![maintained](https://img.shields.io/badge/maintained-✔-green.svg)](https://www.npmjs.com/package/commandir)
+![tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
+[![maintained](https://img.shields.io/badge/maintained-%E2%9C%94-brightgreen.svg)](https://github.com/fvgs/commandir)
 
-`mkdir` and `rmdir` that just work
+> mkdir and rmdir that just work
 
 - The functions are idempotent, so you won't get an error for trying to create a directory that already exists or trying to remove one that doesn't.
 - `mkdir` creates intermediate directories so you don't have to!
-- `mkdir` and `rmdir` will always tell you exactly which directories were created or deleted so your program can [clean up after itself](https://github.com/fvgs/commandir#cleanup-example) if it aborts later in its execution. This is made especially easy by the fact both functions share a consistent API allowing you to pass the output of one as the input to the other!
+- `mkdir` and `rmdir` will always tell you exactly which directories were created or deleted so your program can [clean up after itself](#cleanup-example) if it aborts later in its execution. This is made especially easy by the fact both functions share a consistent API allowing you to pass the output of one as the input to the other!
 
 ### Install
 ##### yarn
@@ -21,10 +22,10 @@ npm install --save commandir
 ```
 
 ## `mkdir (dirs)`
-###### Takes a single argument
+##### Takes a single argument
 The argument is either a single path given as a string or an array of such strings.
 
-###### Returns a promise
+##### Returns a promise
 On success, the promise resolves to an array of strings which holds the paths of all directories that were created. If no directories were created, resolves to an empty array.
 
 On error, rejects with an object of the form `{err, dirs}`, where `err` is the error and `dirs` is an array (possibly empty) of all directories that were created before the error occurred.
@@ -62,10 +63,10 @@ async function makeSomeDirs () {
 ```
 
 ## `rmdir (dirs)`
-###### Takes a single argument
+##### Takes a single argument
 The argument is either a single path given as a string or an array of such strings.
 
-###### Returns a promise
+##### Returns a promise
 On success, the promise resolves to an array of strings which holds the paths of all directories that were deleted. If no directories were deleted, resolves to an empty array.
 
 On error, rejects with an object of the form `{err, dirs}`, where `err` is the error and `dirs` is an array (possibly empty) of all directories that were deleted before the error occurred.
