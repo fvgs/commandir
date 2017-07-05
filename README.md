@@ -1,7 +1,7 @@
 # commandir :open_file_folder:
 
 [![npm](https://img.shields.io/npm/v/commandir.svg)](https://www.npmjs.com/package/commandir)
-[![downloads](https://img.shields.io/npm/dm/commandir.svg)](https://www.npmjs.com/package/commandir)
+[![downloads](https://img.shields.io/npm/dt/commandir.svg)](https://www.npmjs.com/package/commandir)
 ![tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
 [![maintained](https://img.shields.io/badge/maintained-%E2%9C%94-brightgreen.svg)](https://github.com/fvgs/commandir)
 
